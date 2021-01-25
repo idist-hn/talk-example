@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
       <meta name="csrf-token" content="{{csrf_token()}}">
-    <title>Talk Message</title>
+    <title>Chatting System</title>
     
     
     <link rel="stylesheet" href="{{asset('chat/css/reset.css')}}">
@@ -20,7 +20,7 @@
   <body>
 <div class="header">
     <div class="container header-brand">
-        <a href="{{url('/home')}}" class="brand">Talk Message</a>
+        <a href="{{url('/home')}}" class="brand">Chatting System</a>
     </div>
 </div>
       <div class="container clearfix body">

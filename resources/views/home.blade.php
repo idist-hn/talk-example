@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">All Users</div>
+                <div class="panel-heading">Tất cả người dùng</div>
 
                 <div class="panel-body">
                 @foreach($users as $user)
