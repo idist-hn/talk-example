@@ -27,7 +27,8 @@
     },
     render: function() {
       this.scrollToBottom();
-      if (this.messageToSend.trim() !== '') {
+      console.log("running rerender html")
+      if (this.messageToSend !== undefined && this.messageToSend.trim() !== '') {
         var template = Handlebars.compile( $("#message-template").html());
         var context = { 
           messageOutput: this.messageToSend,
@@ -48,7 +49,7 @@
         setTimeout(function() {
           this.$chatHistoryList.append(templateResponse(contextResponse));
           this.scrollToBottom();
-        }.bind(this), 1500);
+        }.bind(this), 150);
         
       }
       
@@ -65,7 +66,7 @@
         }
     },
     scrollToBottom: function() {
-       this.$chatHistory.scrollTop(this.$chatHistory[0].scrollHeight);
+       this.$chatHistory.scrollTop($('#talkMessages').height());
     },
     getCurrentTime: function() {
       return new Date().toLocaleTimeString().

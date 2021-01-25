@@ -66,6 +66,7 @@
 
 
 
+        <script src="{{asset('chat/js/index.js')}}"></script>
         <script src="{{asset('chat/js/talk.js')}}"></script>
 
     <script>
@@ -87,7 +88,7 @@
             $('#talkMessages').append(html);
 
             var objDiv = $('.chat-history');
-            objDiv.scrollTop(objDiv.height());
+            objDiv.scrollTop($('#talkMessages').height());
         }
 
     </script>

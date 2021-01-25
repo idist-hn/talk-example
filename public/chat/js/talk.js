@@ -4,7 +4,8 @@ $(document).ready(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-
+    var objDiv = $('.chat-history');
+    objDiv.scrollTop($('#talkMessages').height());
 
     $('#talkSendMessage').on('submit', function(e) {
         e.preventDefault();
@@ -23,9 +24,8 @@ $(document).ready(function () {
             if (response.status == 'success') {
                 $('#talkMessages').append(response.html);
                 tag[0].reset();
-
                 var objDiv = $('.chat-history');
-                objDiv.scrollTop(objDiv.height());
+                objDiv.scrollTop($('#talkMessages').height());
             }
         });
 
