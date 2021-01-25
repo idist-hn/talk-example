@@ -45,9 +45,9 @@
       
       <div class="chat-message clearfix">
       <form action="" method="post" id="talkSendMessage">
-            <textarea name="message-data" id="message-data" placeholder ="Type your message" rows="3"></textarea>
+            <textarea name="message-data" id="message-data" placeholder ="Nhập tin nhắn..." rows="3"></textarea>
             <input type="hidden" name="_id" value="{{@request()->route('id')}}">
-            <button type="submit">Send</button>
+            <button type="submit">Gửi</button>
       </form>
 
       </div> <!-- end chat-message -->
@@ -70,11 +70,13 @@
         <script src="{{asset('chat/js/talk.js')}}"></script>
 
     <script>
+        var CURRENT_USER = {{ @$user->id }}
         var show = function(data) {
             alert(data.sender.name + " - '" + data.message + "'");
         }
 
         var msgshow = function(data) {
+            if (data.sender.id !== CURRENT_USER) return
             var html = '<li id="message-' + data.id + '">' +
             '<div class="message-data">' +
             '<span class="message-data-name"> <a href="#" class="talkDeleteMessage" data-message-id="' + data.id + '" title="Delete Messag"><i class="fa fa-close" style="margin-right: 3px;"></i></a>' + data.sender.name + '</span>' +
