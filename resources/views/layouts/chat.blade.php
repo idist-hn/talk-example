@@ -60,9 +60,9 @@
       <script>
           var __baseUrl = "{{url('/')}}"
       </script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js'></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js'></script>
+    <script src='{{asset('libs/jquery/jquery.min.js')}}'></script>
+    <script src='{{asset('libs/handlebars/handlebars.min.js')}}'></script>
+    <script src='{{asset('libs/handlebars/list.min.js')}}'></script>
 
 
 
