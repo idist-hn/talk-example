@@ -76,21 +76,29 @@
         }
 
         var msgshow = function(data) {
-            if (data.sender.id !== CURRENT_USER) return
-            var html = '<li id="message-' + data.id + '">' +
-            '<div class="message-data">' +
-            '<span class="message-data-name"> <a href="#" class="talkDeleteMessage" data-message-id="' + data.id + '" title="Delete Messag"><i class="fa fa-close" style="margin-right: 3px;"></i></a>' + data.sender.name + '</span>' +
-            '<span class="message-data-time">1 Second ago</span>' +
-            '</div>' +
-            '<div class="message my-message">' +
-            data.message +
-            '</div>' +
-            '</li>';
+            if (data.sender.id !== CURRENT_USER) {
+                // render chatlist
+                activeUser = $(".active-user[data-user="+data.sender.id+"]")
+                newsestMessage = activeUser.find(".newsest-message")
+                newsestMessage.html(data.message.substring(0, 17)+ (data.message.length > 17 ? '...': ''))
+            }
+            else {
+                // render current list
+                var html = '<li id="message-' + data.id + '">' +
+                    '<div class="message-data">' +
+                    '<span class="message-data-name"> <a href="#" class="talkDeleteMessage" data-message-id="' + data.id + '" title="Delete Messag"><i class="fa fa-close" style="margin-right: 3px;"></i></a>' + data.sender.name + '</span>' +
+                    '<span class="message-data-time">1 Second ago</span>' +
+                    '</div>' +
+                    '<div class="message my-message">' +
+                    data.message +
+                    '</div>' +
+                    '</li>';
 
-            $('#talkMessages').append(html);
+                $('#talkMessages').append(html);
 
-            var objDiv = $('.chat-history');
-            objDiv.scrollTop($('#talkMessages').height());
+                var objDiv = $('.chat-history');
+                objDiv.scrollTop($('#talkMessages').height());
+            }
         }
 
     </script>
